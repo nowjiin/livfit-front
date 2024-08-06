@@ -17,7 +17,6 @@ import {
   CheckboxLabel,
   Links,
   Container,
-  // div_id_pw,
 } from "./LoginStyles";
 
 const Login = () => {
@@ -72,13 +71,13 @@ const Login = () => {
               <Link to="/auth/signup">회원가입</Link>
             </Links>
           </Container>
-          {/* <div>
-            <span>심사위원용 id & pw</span>
+          <div>
+            <span>심사용 id & pw 입니다</span>
             <br></br>
             <span>ID : likelion</span>
             <br></br>
             <span>PW : 1234</span>
-          </div> */}
+          </div>
         </Form>
       </LoginBox>
     </LoginContainer>
