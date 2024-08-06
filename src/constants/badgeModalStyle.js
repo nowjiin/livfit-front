@@ -1,0 +1,31 @@
+export const badgeModalStyle = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    width: "100%",
+    height: "100vh",
+    zIndex: "10",
+    position: "fixed",
+    top: "0",
+    left: "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    maxWidth: "400px",
+    maxHeight: "530px",
+    width: "100%",
+    height: "100%",
+    zIndex: 20,
+    position: "relative",
+    borderRadius: "15px",
+    boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.25)",
+    backgroundColor: "white",
+    overflow: "visible",
+    animation: "slideIn 0.75s forwards",
+    inset: 0,
+    padding: "20px", // 추가: 컨텐츠에 패딩 추가
+  },
+};
