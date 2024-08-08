@@ -71,48 +71,48 @@ const ResultPage = () => {
         // 로딩 시작
         setLoading(true);
 
-        // 점수에 따라 프롬프트 설정
-        let prompt;
-        if (score < 200) {
-          prompt =
-            "당신의 점수는 낮습니다. 거북목 예방을 위한 조언을 제공합니다.";
-        } else if (score < 500) {
-          prompt =
-            "당신의 점수는 평균입니다. 거북목 개선을 위한 팁을 드리겠습니다.";
-        } else if (score < 800) {
-          prompt =
-            "당신의 점수는 양호합니다. 바른 자세를 유지하기 위한 조언을 드립니다.";
-        } else {
-          prompt =
-            "당신의 점수는 매우 좋습니다! 지속적으로 좋은 자세를 유지하세요.";
-        }
-        const response = await axios.post(
-          // .env 파일에서 엔드포인트 가져오기
-          import.meta.env.VITE_GENIEAI_API_ENDPOINT,
-          {
-            model: import.meta.env.VITE_LLAMA,
-            messages: [
-              {
-                role: "user",
-                content: prompt,
-              },
-            ],
-            max_tokens: 150,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              // .env 파일에서 API 키 가져오기
-              Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`,
-            },
-          }
-        );
+        // // 점수에 따라 프롬프트 설정
+        // let prompt;
+        // if (score < 200) {
+        //   prompt =
+        //     "당신의 점수는 낮습니다. 거북목 예방을 위한 조언을 제공합니다.";
+        // } else if (score < 500) {
+        //   prompt =
+        //     "당신의 점수는 평균입니다. 거북목 개선을 위한 팁을 드리겠습니다.";
+        // } else if (score < 800) {
+        //   prompt =
+        //     "당신의 점수는 양호합니다. 바른 자세를 유지하기 위한 조언을 드립니다.";
+        // } else {
+        //   prompt =
+        //     "당신의 점수는 매우 좋습니다! 지속적으로 좋은 자세를 유지하세요.";
+        // }
+        // const response = await axios.post(
+        //   // .env 파일에서 엔드포인트 가져오기
+        //   import.meta.env.VITE_GENIEAI_API_ENDPOINT,
+        //   {
+        //     model: import.meta.env.VITE_LLAMA,
+        //     messages: [
+        //       {
+        //         role: "user",
+        //         content: prompt,
+        //       },
+        //     ],
+        //     max_tokens: 150,
+        //   },
+        //   {
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       // .env 파일에서 API 키 가져오기
+        //       Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`,
+        //     },
+        //   }
+        // );
 
-        if (response.data.choices && response.data.choices[0].message.content) {
-          setAiTip(response.data.choices[0].message.content.trim()); // 받아온 데이터를 aiTip 상태에 저장
-        } else {
-          setAiTip("거북목을 예방하기 위해서는 바른 자세와 스트레칭 필수!"); // 기본 TIP 메시지
-        }
+        // if (response.data.choices && response.data.choices[0].message.content) {
+        //   setAiTip(response.data.choices[0].message.content.trim()); // 받아온 데이터를 aiTip 상태에 저장
+        // } else {
+        //   setAiTip("거북목을 예방하기 위해서는 바른 자세와 스트레칭 필수!"); // 기본 TIP 메시지
+        // }
       } catch (error) {
         console.error(
           "Error fetching tip:",
